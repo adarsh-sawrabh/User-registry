@@ -13,7 +13,7 @@ const Router: React.FC<RouterProps> = ({ currentUser }) => {
         <Routes>
             {currentUser ? (
                 <>
-                    <Route path="/" element={<RegUserTable currentUser={currentUser} />} />
+                    <Route path="/" element={<RegUserTable/>} />
                 </>
             ) : (
                 <Route path="*" element={<UserRegForm />} />

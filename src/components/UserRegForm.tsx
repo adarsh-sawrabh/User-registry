@@ -115,7 +115,7 @@ const UserRegForm: React.FC = () => {
                 sx={{
                     borderRadius: "10px",
                     overflow: "hidden",
-                    borderTop: "10px solid rgb(0, 51, 141);",
+                    borderTop: "10px solid rgb(0, 51, 141)",
                     borderRight: "3px solid #cccccc3b",
                     borderBottom: "3px solid #cccccc3b",
                     borderLeft: "3px solid #cccccc3b",
