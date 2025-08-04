@@ -6,6 +6,9 @@ import {
     Box,
     Typography,
     CircularProgress,
+    Grid,
+    Checkbox,
+    FormControlLabel,
 } from "@mui/material";
 
 interface FormValues {
@@ -16,6 +19,7 @@ interface FormValues {
     organization: string;
     address?: string;
     areasOfInterest?: string;
+    consentGiven: string;
 }
 
 const UserRegForm: React.FC = () => {
@@ -26,10 +30,11 @@ const UserRegForm: React.FC = () => {
         name: '',
         email: '',
         phoneNumber: '',
-        event: 'MMIS',
+        event: 'MESC',
         organization: '',
         address: '',
         areasOfInterest: '',
+        consentGiven: 'no',
     };
 
     const [formValues, setFormValues] = useState<FormValues>(initialFormValues);
@@ -63,6 +68,15 @@ const UserRegForm: React.FC = () => {
         }));
     }
 
+    const handleConsentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.checked) {
+            setFormValues((prevValues) => ({
+                ...prevValues,
+                consentGiven: 'yes',
+            }));
+        }
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         const errors = validateFields();
@@ -93,125 +107,147 @@ const UserRegForm: React.FC = () => {
     };
 
     return (
-        <Box
-            sx={{
-                borderRadius: "10px",
-                overflow: "hidden",
-                borderTop: "10px solid rgb(0, 51, 141);",
-                borderRight: "3px solid #cccccc3b",
-                borderBottom: "3px solid #cccccc3b",
-                borderLeft: "3px solid #cccccc3b",
-                backgroundColor: "rgb(246, 246, 246)",
-                boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 8px 0px",
-                mb: 10,
-                mt: 10,
-                mx: 50,
-                p: 2,
-                transition: "0.3 0.3s ease-in-out"
-            }}
-        >
-            <Typography variant="h3" gutterBottom sx={{ color: "#0087ff", fontSize: '30px', }}>
-                User Registration Form
-            </Typography>
-            <form onSubmit={handleSubmit}>
-                <TextField
-                    fullWidth
-                    name="name"
-                    label="Name"
-                    value={formValues.name}
-                    onChange={handleInputChange}
-                    error={Boolean(formErrors.name)}
-                    helperText={formErrors.name}
-                    margin="normal"
-                    required
-                />
-                <TextField
-                    fullWidth
-                    name="email"
-                    label="Email"
-                    value={formValues.email}
-                    onChange={handleInputChange}
-                    error={Boolean(formErrors.email)}
-                    helperText={formErrors.email}
-                    margin="normal"
-                    required
-                />
-                <TextField
-                    fullWidth
-                    name="phoneNumber"
-                    label="Phone Number"
-                    value={formValues.phoneNumber}
-                    onChange={handleInputChange}
-                    error={Boolean(formErrors.phoneNumber)}
-                    helperText={formErrors.phoneNumber}
-                    margin="normal"
-                    required
-                />
-                <TextField
-                    fullWidth
-                    name="event"
-                    label="Event"
-                    value={formValues.event}
-                    margin="normal"
-                    disabled
-                />
-                <TextField
-                    fullWidth
-                    name="organization"
-                    label="Organization"
-                    value={formValues.organization}
-                    onChange={handleInputChange}
-                    error={Boolean(formErrors.organization)}
-                    helperText={formErrors.organization}
-                    margin="normal"
-                    required
-                />
-                <TextField
-                    fullWidth
-                    name="address"
-                    label="Address"
-                    value={formValues.address}
-                    onChange={handleInputChange}
-                    margin="normal"
-                />
-                <TextField
-                    fullWidth
-                    name="areasOfInterest"
-                    label="Areas of Interest"
-                    value={formValues.areasOfInterest}
-                    onChange={handleInputChange}
-                    margin="normal"
-                />
-                <Box sx={{ textAlign: 'center', mt: 2, p: 2 }}>
-                    <Button
-                        type="submit"
-                        variant="contained"
-                        color="primary"
-                        disabled={isSubmitting}
-                        sx={{ minWidth: 120, height: 40 }}
-                    >
-                        {isSubmitting ? <CircularProgress size={24} /> : 'Submit'}
-                    </Button>
-                </Box>
-            </form>
-            {isSuccessful && (
-                <Box sx={{
-                    position: 'fixed',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    backgroundColor: '#323232c4',
-                    color: '#fff',
-                    padding: '16px',
-                    borderRadius: "8px",
-                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
-                    zIndex: '1000'
-                }}>
-                    User Registration successful
-                </Box>
-            )
-            }
-        </Box >
+        <Grid container justifyContent="center">
+            <Box
+                sx={{
+                    borderRadius: "10px",
+                    overflow: "hidden",
+                    borderTop: "10px solid rgb(0, 51, 141);",
+                    borderRight: "3px solid #cccccc3b",
+                    borderBottom: "3px solid #cccccc3b",
+                    borderLeft: "3px solid #cccccc3b",
+                    backgroundColor: "rgb(246, 246, 246)",
+                    boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 8px 0px",
+                    mb: 10,
+                    mt: 10,
+                    p: 2,
+                    transition: "0.3 0.3s ease-in-out",
+                    maxWidth: { xs: '95%', sm: '80%', md: '60%', lg: '50%' }
+                }}
+            >
+                <Typography variant="h3" gutterBottom sx={{ color: "#0087ff", fontSize: '30px', }}>
+                    User Registration Form
+                </Typography>
+                <form onSubmit={handleSubmit}>
+                    <TextField
+                        fullWidth
+                        name="name"
+                        label="Name"
+                        value={formValues.name}
+                        onChange={handleInputChange}
+                        error={Boolean(formErrors.name)}
+                        helperText={formErrors.name}
+                        margin="normal"
+                        required
+                    />
+                    <TextField
+                        fullWidth
+                        name="email"
+                        label="Email"
+                        value={formValues.email}
+                        onChange={handleInputChange}
+                        error={Boolean(formErrors.email)}
+                        helperText={formErrors.email}
+                        margin="normal"
+                        required
+                    />
+                    <TextField
+                        fullWidth
+                        name="phoneNumber"
+                        label="Phone Number"
+                        value={formValues.phoneNumber}
+                        onChange={handleInputChange}
+                        error={Boolean(formErrors.phoneNumber)}
+                        helperText={formErrors.phoneNumber}
+                        margin="normal"
+                        required
+                    />
+                    <TextField
+                        fullWidth
+                        name="event"
+                        label="Event"
+                        value={formValues.event}
+                        margin="normal"
+                        disabled
+                    />
+                    <TextField
+                        fullWidth
+                        name="organization"
+                        label="Organization"
+                        value={formValues.organization}
+                        onChange={handleInputChange}
+                        error={Boolean(formErrors.organization)}
+                        helperText={formErrors.organization}
+                        margin="normal"
+                        required
+                    />
+                    <TextField
+                        fullWidth
+                        name="address"
+                        label="Address"
+                        value={formValues.address}
+                        onChange={handleInputChange}
+                        margin="normal"
+                    />
+                    <TextField
+                        fullWidth
+                        name="areasOfInterest"
+                        label="Areas of Interest"
+                        value={formValues.areasOfInterest}
+                        onChange={handleInputChange}
+                        margin="normal"
+                    />
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                checked={false}
+                                onChange={handleConsentChange}
+                                name="consentGiven"
+                                color="primary"
+                            />
+                        }
+                        label={
+                            <Typography variant='h5' sx={{ fontSize: '0.875rem' }}>
+                                I agree to our Terms Of Service & Privacy Policy
+                            </Typography>
+                        }
+                    />
+                    {formErrors.consentGiven && (
+                        <Typography color="error" variant="body2">
+                            {formErrors.consentGiven}
+                        </Typography>
+                    )}
+                    <Box sx={{ textAlign: 'center', mt: 2, p: 2 }}>
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            color="primary"
+                            disabled={isSubmitting}
+                            sx={{ minWidth: 120, height: 40 }}
+                        >
+                            {isSubmitting ? <CircularProgress size={24} /> : 'Submit'}
+                        </Button>
+                    </Box>
+                </form>
+                {isSuccessful && (
+                    <Box sx={{
+                        position: 'fixed',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        backgroundColor: '#323232c4',
+                        color: '#fff',
+                        padding: '16px',
+                        borderRadius: "8px",
+                        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
+                        zIndex: '1000'
+                    }}>
+                        User Registration successful
+                    </Box>
+                )
+                }
+            </Box >
+        </Grid>
     )
 }
 

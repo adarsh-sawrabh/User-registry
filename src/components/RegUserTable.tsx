@@ -46,42 +46,11 @@ const RegUserTable: React.FC<RegUserTableProps> = ({ currentUser }) => {
     setSelected([]);
   };
 
-  const handleClick = (id: number) => {
-    const selectedIndex = selected.indexOf(id);
-    let newSelected: number[] = [];
-
-    if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, id);
-    } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selected.slice(1));
-    } else if (selectedIndex === selected.length - 1) {
-      newSelected = newSelected.concat(selected.slice(0, -1));
-    } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(
-        selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1)
-      );
-    }
-
-    setSelected(newSelected);
-  };
-
-  const isSelected = (id: number) => selected.indexOf(id) !== -1;
-
-  const handleEdit = (id: number) => {
-    console.log(`Edit user with id: ${id}`);
-    // Implement edit functionality
-  };
-
-  const handleDelete = (id: number) => {
-    console.log(`Delete user with id: ${id}`);
-    // Implement delete functionality
-    setData(data.filter((user) => user.id !== id));
-  };
+  
 
     return (
         <>
-            <h3>Registered UserInfo Table</h3>
+            <h3>RegUserTable</h3>
         </>
     )
 }
