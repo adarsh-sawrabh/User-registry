@@ -110,7 +110,7 @@ const UserRegForm: React.FC = () => {
                 transition: "0.3 0.3s ease-in-out"
             }}
         >
-            <Typography variant="h3" gutterBottom sx={{ color: "#0087ff", fontSize: '40px', }}>
+            <Typography variant="h3" gutterBottom sx={{ color: "#0087ff", fontSize: '30px', }}>
                 User Registration Form
             </Typography>
             <form onSubmit={handleSubmit}>
