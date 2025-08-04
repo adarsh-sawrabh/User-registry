@@ -6,9 +6,7 @@ import {
     Box,
     Typography,
     CircularProgress,
-    Snackbar,
 } from "@mui/material";
-import { Translate } from "@mui/icons-material";
 
 interface FormValues {
     name: string;
@@ -107,7 +105,7 @@ const UserRegForm: React.FC = () => {
                 boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 8px 0px",
                 mb: 10,
                 mt: 10,
-                mx: 30,
+                mx: 50,
                 p: 2,
                 transition: "0.3 0.3s ease-in-out"
             }}
