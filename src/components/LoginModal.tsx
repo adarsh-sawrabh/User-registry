@@ -47,7 +47,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ open, onClose, onLogin }) => {
 
     return (
         <Dialog open={open} onClose={handleClose} maxWidth="xs" fullWidth>
-            <DialogTitle sx={{ textAlign: "center" }}>Login</DialogTitle>
+            <DialogTitle sx={{ textAlign: "center" }}>Admin Login</DialogTitle>
             <form onSubmit={handleSubmit}>
                 <DialogContent>
                     {error && (

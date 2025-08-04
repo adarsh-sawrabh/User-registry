@@ -88,12 +88,15 @@ const UserRegForm: React.FC = () => {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
+                        'Cache-Control': 'no-cache', // Prevent caching
+                        'Pragma': 'no-cache',
                     },
                     body: JSON.stringify(formValues),
                 });
                 if (response.status === 200) {
                     setIsSuccessful(true);
                     setFormValues(initialFormValues);
+                    localStorage.removeItem('formValues');
                     setTimeout(() => {
                         setIsSuccessful(false);
                     }, 2000);

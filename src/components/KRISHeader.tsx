@@ -83,7 +83,7 @@ const KRISHeader: React.FC<KRISHeaderProps> = ({ currentUser, onLogin, onLogout 
                                 </Box>
                             ) : (
                                 <Button variant="text" onClick={onLogin} sx={{ textTransform: "none", color: "black" }}>
-                                    Login
+                                    Admin
                                 </Button>
                             )}
                         </Box>
