@@ -102,7 +102,8 @@ const KRISHeader: React.FC<KRISHeaderProps> = ({ currentUser, onLogin, onLogout 
                     justifyContent: 'center',
                     color: 'white',
                     textAlign: 'left',
-                    padding: 2
+                    py: { xs: 2, sm: 3 },
+                    px: 1,
                 }}
             >
                 <Typography
@@ -114,7 +115,7 @@ const KRISHeader: React.FC<KRISHeaderProps> = ({ currentUser, onLogin, onLogout 
                         paddingRight: '120px',
                         fontFamily: 'KPMG Light',
                         fontWeight: 300,
-                        fontSize: '36px',
+                        fontSize: { xs: '28px', sm: '36px' },
                         color: 'rgb(255, 255, 255)'
                     }}
                 >
@@ -129,7 +130,7 @@ const KRISHeader: React.FC<KRISHeaderProps> = ({ currentUser, onLogin, onLogout 
                         paddingRight: '120px',
                         fontFamily: 'KPMG Bold',
                         fontWeight: 400,
-                        fontSize: '46px',
+                        fontSize: { xs: '36px', sm: '46px' },
                         color: 'rgb(255, 255, 255)'
                     }}
                 >
