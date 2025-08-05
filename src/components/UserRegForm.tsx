@@ -16,7 +16,7 @@ interface FormValues {
     email: string;
     phoneNumber: string;
     event: string;
-    organization: string;
+    organization?: string;
     address?: string;
     areasOfInterest?: string;
     consentGiven: string;
@@ -56,7 +56,6 @@ const UserRegForm: React.FC = () => {
         } else if (!/^\d{10}$/.test(formValues.phoneNumber)) {
             errors.phoneNumber = 'Phone Number must be 10 digits';
         }
-        if (!formValues.organization) errors.organization = 'Organization is required';
         return errors;
     };
 
@@ -179,10 +178,7 @@ const UserRegForm: React.FC = () => {
                         label="Organization"
                         value={formValues.organization}
                         onChange={handleInputChange}
-                        error={Boolean(formErrors.organization)}
-                        helperText={formErrors.organization}
                         margin="normal"
-                        required
                     />
                     <TextField
                         fullWidth

@@ -19,7 +19,7 @@ interface KRISHeaderProps {
 
 const KRISHeader: React.FC<KRISHeaderProps> = ({ currentUser, onLogin, onLogout }) => {
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-    const welcomeText = currentUser ? `Admin Dashboard` : "MESC User Registration";
+    const welcomeText = currentUser ? `Admin Dashboard` : "User Registration";
 
     const handleUserMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElUser(event.currentTarget);
