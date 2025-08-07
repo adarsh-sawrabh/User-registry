@@ -50,49 +50,49 @@
 }
 
 @font-face {
-  font-family: "KPMG Bold Italic";
-  src: local("KPMG-BOLD ITALIC"),
-    url("./assets/fonts/KPMG-BOLD ITALIC.TTF") format("truetype");
+  font-family: "AMG Bold Italic";
+  src: local("AMG-BOLD ITALIC"),
+    url("./assets/fonts/AMG-BOLD ITALIC.TTF") format("truetype");
 }
 
 @font-face {
-  font-family: "KPMG Bold";
-  src: local("KPMG-BOLD"),
-    url("./assets/fonts/KPMG-BOLD.TTF") format("truetype");
+  font-family: "AMG Bold";
+  src: local("AMG-BOLD"),
+    url("./assets/fonts/AMG-BOLD.TTF") format("truetype");
 }
 
 @font-face {
-  font-family: "KPMG ExtraLight Italic";
-  src: local("KPMG-EXTRALIGHT ITALIC"),
-    url("./assets/fonts/KPMG-EXTRALIGHT ITALIC.TTF") format("truetype");
+  font-family: "AMG ExtraLight Italic";
+  src: local("AMG-EXTRALIGHT ITALIC"),
+    url("./assets/fonts/AMG-EXTRALIGHT ITALIC.TTF") format("truetype");
 }
 
 @font-face {
-  font-family: "KPMG ExtraLight";
-  src: local("KPMG-EXTRALIGHT"),
-    url("./assets/fonts/KPMG-EXTRALIGHT.TTF") format("truetype");
+  font-family: "AMG ExtraLight";
+  src: local("AMG-EXTRALIGHT"),
+    url("./assets/fonts/AMG-EXTRALIGHT.TTF") format("truetype");
 }
 
 @font-face {
-  font-family: "KPMG Light Italic";
-  src: local("KPMG-LIGHT ITALIC"),
-    url("./assets/fonts/KPMG-LIGHT ITALIC.TTF") format("truetype");
+  font-family: "AMG Light Italic";
+  src: local("AMG-LIGHT ITALIC"),
+    url("./assets/fonts/AMG-LIGHT ITALIC.TTF") format("truetype");
 }
 
 @font-face {
-  font-family: "KPMG Light";
-  src: local("KPMG-LIGHT"),
-    url("./assets/fonts/KPMG-LIGHT.TTF") format("truetype");
+  font-family: "AMG Light";
+  src: local("AMG-LIGHT"),
+    url("./assets/fonts/AMG-LIGHT.TTF") format("truetype");
 }
 
 @font-face {
-  font-family: "KPMG Thin Italic";
-  src: local("KPMG-THIN ITALIC"),
-    url("./assets/fonts/KPMG-THIN ITALIC.TTF") format("truetype");
+  font-family: "AMG Thin Italic";
+  src: local("AMG-THIN ITALIC"),
+    url("./assets/fonts/AMG-THIN ITALIC.TTF") format("truetype");
 }
 
 @font-face {
-  font-family: "KPMG Thin";
-  src: local("KPMG-THIN"),
-    url("./assets/fonts/KPMG-THIN.TTF") format("truetype");
+  font-family: "AMG Thin";
+  src: local("AMG-THIN"),
+    url("./assets/fonts/AMG-THIN.TTF") format("truetype");
 }
