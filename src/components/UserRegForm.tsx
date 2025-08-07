@@ -19,7 +19,7 @@ interface FormValues {
     organization?: string;
     address?: string;
     areasOfInterest?: string;
-    consentGiven: string;
+    isConsent: boolean;
 }
 
 const UserRegForm: React.FC = () => {
@@ -34,7 +34,7 @@ const UserRegForm: React.FC = () => {
         organization: '',
         address: '',
         areasOfInterest: '',
-        consentGiven: 'no',
+        isConsent: false,
     };
 
     const [formValues, setFormValues] = useState<FormValues>(initialFormValues);
@@ -68,12 +68,10 @@ const UserRegForm: React.FC = () => {
     }
 
     const handleConsentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.checked) {
-            setFormValues((prevValues) => ({
-                ...prevValues,
-                consentGiven: 'yes',
-            }));
-        }
+        setFormValues((prevValues) => ({
+            ...prevValues,
+            isConsent: e.target.checked,
+        }));
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -87,12 +85,12 @@ const UserRegForm: React.FC = () => {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Cache-Control': 'no-cache', // Prevent caching
-                        'Pragma': 'no-cache',
+                        //'Cache-Control': 'no-cache', // Prevent caching
+                        //'Pragma': 'no-cache',
                     },
                     body: JSON.stringify(formValues),
                 });
-                if (response.status === 200) {
+                if (response.ok) {
                     setIsSuccessful(true);
                     setFormValues(initialFormValues);
                     localStorage.removeItem('formValues');
@@ -199,9 +197,9 @@ const UserRegForm: React.FC = () => {
                     <FormControlLabel
                         control={
                             <Checkbox
-                                checked={false}
+                                checked={formValues.isConsent}
                                 onChange={handleConsentChange}
-                                name="consentGiven"
+                                name="isConsent"
                                 color="primary"
                             />
                         }
@@ -211,11 +209,6 @@ const UserRegForm: React.FC = () => {
                             </Typography>
                         }
                     />
-                    {formErrors.consentGiven && (
-                        <Typography color="error" variant="body2">
-                            {formErrors.consentGiven}
-                        </Typography>
-                    )}
                     <Box sx={{ textAlign: 'center', mt: 2, p: 2 }}>
                         <Button
                             type="submit"
